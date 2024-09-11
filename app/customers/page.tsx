@@ -6,6 +6,7 @@ import React, {
   ReactElement,
   useCallback,
   useMemo,
+  Suspense,
 } from "react";
 import {
   MoreHorizontal,
@@ -81,6 +82,20 @@ interface Customer {
 const NEXT_PUBLIC_GROUP_TOKEN: string | undefined =
   process.env.NEXT_PUBLIC_GROUP_TOKEN;
 
+const SearchParamsComponent: any = ({
+  setCurrentPage,
+}: {
+  setCurrentPage: (page: number) => void;
+}): null => {
+  const searchParams: ReadonlyURLSearchParams = useSearchParams();
+  const currentPage: number = parseInt(searchParams.get("page") || "1", 10);
+  useEffect((): void => {
+    setCurrentPage(currentPage);
+  }, [currentPage, setCurrentPage]);
+
+  return null;
+};
+
 export default function CustomerPage(): ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -97,8 +112,7 @@ export default function CustomerPage(): ReactElement {
     column: string;
     order: "asc" | "desc";
   }>({ column: "", order: "asc" });
-  const searchParams: ReadonlyURLSearchParams = useSearchParams();
-  const currentPage: number = parseInt(searchParams.get("page") || "1", 10);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [totalCustomers, setTotalCustomers] = useState<number>(0);
   const router: AppRouterInstance = useRouter();
@@ -317,6 +331,9 @@ export default function CustomerPage(): ReactElement {
   return (
     <UpAppearTransition>
       <main className="grid flex-1 items-start gap-2 p-2 sm:px-4 sm:py-2 md:gap-4 my-2">
+        <Suspense fallback={<Skeleton className="h-40 sm:h-56 w-full" />}>
+          <SearchParamsComponent setCurrentPage={setCurrentPage} />
+        </Suspense>
         <Card>
           <CardHeader>
             <div className="flex justify-between items-center">
@@ -500,7 +517,10 @@ export default function CustomerPage(): ReactElement {
                     )
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={5} className="text-center text-xs sm:text-sm">
+                      <TableCell
+                        colSpan={5}
+                        className="text-center text-xs sm:text-sm"
+                      >
                         {t("customers.no_results")}
                       </TableCell>
                     </TableRow>

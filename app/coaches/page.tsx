@@ -1,6 +1,13 @@
 "use client";
 
-import { ReactElement, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  ReactElement,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import {
   MoreHorizontal,
   PlusCircle,
@@ -68,6 +75,20 @@ interface Coach {
 const NEXT_PUBLIC_GROUP_TOKEN: string | undefined =
   process.env.NEXT_PUBLIC_GROUP_TOKEN;
 
+const SearchParamsComponent: any = ({
+  setCurrentPage,
+}: {
+  setCurrentPage: (page: number) => void;
+}): null => {
+  const searchParams: ReadonlyURLSearchParams = useSearchParams();
+  const currentPage: number = parseInt(searchParams.get("page") || "1", 10);
+  useEffect((): void => {
+    setCurrentPage(currentPage);
+  }, [currentPage, setCurrentPage]);
+
+  return null;
+};
+
 export default function LoginPage(): ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [coaches, setCoaches] = useState<Coach[]>([]);
@@ -80,8 +101,7 @@ export default function LoginPage(): ReactElement {
   const [selectedCoaches, setSelectedCoaches] = useState<Set<string>>(
     new Set()
   );
-  const searchParams: ReadonlyURLSearchParams = useSearchParams();
-  const currentPage: number = parseInt(searchParams.get("page") || "1", 10);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [totalEmployees, setTotalEmployees] = useState<number>(0);
   const [sortOrder, setSortOrder] = useState<{
@@ -270,6 +290,9 @@ export default function LoginPage(): ReactElement {
   return (
     <UpAppearTransition>
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 my-4">
+        <Suspense fallback={<Skeleton className="h-40 sm:h-56 w-full" />}>
+          <SearchParamsComponent setCurrentPage={setCurrentPage} />
+        </Suspense>
         <Card>
           <CardHeader>
             <CardTitle>{t("coaches.title")}</CardTitle>
