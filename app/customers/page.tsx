@@ -333,7 +333,6 @@ export default function CustomerPage(): ReactElement {
                 <SearchBar
                   searchFilter={searchFilter}
                   setSearchFilter={setSearchFilter}
-                  className="w-24 sm:w-32 md:w-48"
                 />
                 <Button
                   size="sm"
