@@ -1,0 +1,119 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+model Employee {
+  id                 BigInt   @id @default(autoincrement())
+  email              String   @unique
+  password           String
+  name               String
+  surname            String
+  birth_date         DateTime @db.Date
+  gender             Gender
+  work               String
+  image              String?
+  phone_number       String
+  profil_picture_url String?
+
+  events    Event[]
+  customers Customer[]
+  documents Document[]
+}
+
+model Event {
+  id                      BigInt   @id @default(autoincrement())
+  name                    String
+  date                    DateTime @default(now())
+  max_participants        Int
+  location_x              String
+  location_y              String
+  type                    String
+  employee_id             BigInt?
+  location_name           String
+  duration                Int
+  registered_participants Int      @default(0)
+
+  employee Employee? @relation(fields: [employee_id], references: [id])
+}
+
+model Customer {
+  id                 BigInt   @id @default(autoincrement())
+  email              String   @unique
+  name               String
+  surname            String
+  birth_date         DateTime @db.Date
+  gender             Gender
+  description        String
+  phone_number       String
+  address            String
+  employee_id        BigInt?
+  created_at         DateTime @default(now()) @db.Date
+  profil_picture_url String?
+
+  encounters       Encounter[]
+  paymentHistories PaymentHistory[]
+  Clothe           Clothe[]
+
+  employee Employee? @relation(fields: [employee_id], references: [id])
+}
+
+model PaymentHistory {
+  id             BigInt   @id @default(autoincrement())
+  date           DateTime @default(now())
+  payment_method String
+  amount         Float
+  comment        String?
+  customer_id    BigInt
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+}
+
+model Encounter {
+  id          BigInt   @id @default(autoincrement())
+  customer_id BigInt
+  date        DateTime @default(now()) @db.Date
+  rating      Int
+  comment     String?
+  source      String
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+}
+
+model Tip {
+  id    BigInt @id @default(autoincrement())
+  title String
+  tip   String
+}
+
+model Clothe {
+  id          BigInt  @id @default(autoincrement())
+  type        String
+  customer_id BigInt
+  image_url   String?
+
+  customer Customer @relation(fields: [customer_id], references: [id])
+}
+
+model Document {
+  id           BigInt   @id @default(autoincrement())
+  name         String
+  type         String
+  size         BigInt
+  date         DateTime @default(now())
+  employee_id  BigInt?
+  document_url String
+  file_name    String
+
+  employee Employee? @relation(fields: [employee_id], references: [id])
+}

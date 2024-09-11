@@ -1,0 +1,116 @@
+{
+  "shadcn": {
+    "compatibility": {
+      "combobox": "Sélectionnez un client..."
+    },
+    "pagination": {
+      "prev": "Précédent",
+      "next": "Suivant"
+    },
+    "search" : "Rechercher..."
+  },
+  "login": {
+    "enter_email": "Entrez votre adresse e-mail ci-dessous pour vous connecter à votre compte",
+    "password": "Mot de passe",
+    "login": "Connexion"
+  },
+  "navbar": {
+    "dashboard": "Tableau de bord",
+    "customers": "Clients",
+    "coaches": "Entraîneurs",
+    "events": "Événements",
+    "tips": "Conseils",
+    "compatibility": "Compatibilité",
+    "account": "Mon compte",
+    "logout": "Déconnexion"
+  },
+  "tips": {
+    "title": "Astuces pour les Coachs"
+  },
+  "analytics": {
+    "revenue": "Revenu total",
+    "customers": "Nouveaux clients",
+    "encounters": "Rencontres",
+    "events": "Evènements",
+    "recent": "Transactions récentes de votre entreprise",
+    "view_all": "Voir tout",
+    "customer": "Client",
+    "amount": "Montant",
+    "graph": "Meilleures sources de rencontres",
+    "date": "Date",
+    "method": "Méthode de paiement",
+    "comment": "Commentaire",
+    "world": "Client(s) par pays",
+    "history": "Historique de paiement",
+    "customer_by_country": "Client(s) par pays",
+    "number_of_events": "Nombre d'événements",
+    "january": "Janvier",
+    "december": "Décembre"
+  },
+  "compatibility": {
+    "title": "Calculateur de compatibilité astrologique",
+    "calculate": "Calculer",
+    "search": "Rechercher un client..."
+  },
+  "Clothes": {
+    "wardrobe": "Garde-robe",
+    "hat/cap": "Chapeau",
+    "top": "Haut",
+    "bottom": "Pantalon",
+    "shoes": "Chaussures",
+    "preview": "Aperçu",
+    "of": "sur",
+    "select": "Selectionnez un vêtement pour voir l'aperçu",
+    "back": "Retour"
+  },
+  "customers": {
+    "title": "Liste des clients",
+    "total": "Vous avez un total de",
+    "clients": "clients",
+    "client": "client",
+    "bulk": "Action groupées",
+    "name": "Nom",
+    "email": "Email",
+    "payment": "Méthode de paiement",
+    "phone": "N° de Téléphone",
+    "add": "Ajouter un client",
+    "apply": "Appliquer",
+    "view": "Voir profil",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "no_results": "Aucun résultat trouvé"
+  },
+  "coaches": {
+    "title": "Liste des coaches",
+    "total": "Vous avez un total de",
+    "coaches": "coaches",
+    "coach": "coach",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "N° de Téléphone",
+    "add": "Ajouter un coach",
+    "apply": "Appliquer",
+    "view": "Voir profil",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "no_results": "Aucun résultat trouvé"
+  },
+  "profile": {
+    "details": "Détails du profil de ",
+    "recent": "Meeting récents",
+    "rating": "Note",
+    "comment": "Commentaire",
+    "contact_wardrobe": "Contact et garde-robe",
+    "send": "Envoyer un email",
+    "wardrobe": "Voir la Garde-robe",
+    "statistics": "Statistiques",
+    "total": "Total des rencontres",
+    "positive": "Positives",
+    "short_details": "Détails courts",
+    "id": "ID Utilisateur",
+    "address": "Adresse",
+    "back": "Retour"
+  },
+  "and": "et",
+  "page": "Page"
+}

@@ -1,0 +1,116 @@
+{
+  "shadcn": {
+    "compatibility": {
+      "combobox": "Select a customer..."
+    },
+    "pagination": {
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "search" : "Search..."
+  },
+  "login": {
+    "enter_email": "Enter your email below to login to your account",
+    "password": "Password",
+    "login": "Login"
+  },
+  "navbar": {
+    "dashboard": "Dashboard",
+    "customers": "Customers",
+    "coaches": "Coaches",
+    "events": "Events",
+    "tips": "Tips",
+    "compatibility": "Compatibility",
+    "account": "My Account",
+    "logout": "Logout"
+  },
+  "tips": {
+    "title": "Tips for Coaches"
+  },
+  "analytics": {
+    "revenue": "Total Revenue",
+    "customers": "New Customers",
+    "encounters": "Encounters",
+    "events": "Events",
+    "recent": "Recent transactions from your company",
+    "view_all": "View all",
+    "customer": "Customer",
+    "amount": "Amount",
+    "graph": "Meeting top sources",
+    "date": "Date",
+    "method": "Payment Method",
+    "comment": "Comment",
+    "world": "Customer(s) by country",
+    "history": "Payment History",
+    "customer_by_country": "Customer(s) by country",
+    "number_of_events": "Number of events",
+    "january": "January",
+    "december": "December"
+  },
+  "compatibility": {
+    "title": "Astrological Compatibility Calculator",
+    "calculate": "Calculate",
+    "search": "Search customer..."
+  },
+  "Clothes": {
+    "wardrobe": "Wardrobe",
+    "hat/cap": "Hat",
+    "top": "Shirt",
+    "bottom": "Pants",
+    "shoes": "Shoes",
+    "preview": "Preview",
+    "select": "Select a clothing item to see the preview",
+    "back": "Back",
+    "of": "of"
+  },
+  "customers": {
+    "title": "Customers List",
+    "total": "You have a total of",
+    "clients": "customers",
+    "client": "customer",
+    "bulk": "Bulk Actions",
+    "name": "Name",
+    "email": "Email",
+    "payment": "Payment Method",
+    "phone": "Phone Number",
+    "add": "Add a customer",
+    "apply": "Apply",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "no_results": "No results found"
+  },
+  "coaches": {
+    "title": "Coaches List",
+    "total": "You have a total of",
+    "clients": "coaches",
+    "client": "coach",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "add": "Add a coach",
+    "apply": "Apply",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "no_results": "No results found"
+  },
+  "profile": {
+    "details": "Profile Details of",
+    "recent": "Recent Meetings",
+    "rating": "Rating",
+    "comment": "Comment",
+    "contact_wardrobe": "Contact and Wardrobe",
+    "send": "Send email",
+    "wardrobe": "See Wardrobe",
+    "statistics": "Statistics",
+    "total": "Total encounters",
+    "positive": "Positive",
+    "short_details": "Short Details",
+    "id": "User ID:",
+    "address": "Address:",
+    "back": "Back"
+  },
+  "and": "and",
+  "page": "Page"
+}
