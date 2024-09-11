@@ -1,6 +1,6 @@
 const DEEPL_API_URL = "https://api-free.deepl.com/v2/translate";
 
-const { NEXT_PUBLIC_DEEPL_API_KEY } = process.env;
+const NEXT_PUBLIC_DEEPL_API_KEY = process.env.NEXT_PUBLIC_DEEPL_API_KEY;
 
 export async function translateText(
   text: string,

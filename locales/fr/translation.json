@@ -7,7 +7,7 @@
       "prev": "Précédent",
       "next": "Suivant"
     },
-    "search" : "Rechercher..."
+    "search": "Rechercher..."
   },
   "login": {
     "enter_email": "Entrez votre adresse e-mail ci-dessous pour vous connecter à votre compte",
@@ -22,7 +22,12 @@
     "tips": "Conseils",
     "compatibility": "Compatibilité",
     "account": "Mon compte",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "themes": {
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    }
   },
   "tips": {
     "title": "Astuces pour les Coachs"
@@ -110,6 +115,10 @@
     "id": "ID Utilisateur",
     "address": "Adresse",
     "back": "Retour"
+  },
+  "events": {
+    "title": "Évenements",
+    "click": "Sélectionnez un événement pour plus de détails"
   },
   "and": "et",
   "page": "Page"

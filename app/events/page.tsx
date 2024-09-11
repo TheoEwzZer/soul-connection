@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { EventString } from "../api/events/route";
 import Agenda from "@/components/agenda";
 import UpAppearTransition from "@/components/UpAppearTransition";
+import { useTranslation } from "next-i18next";
 import { MapProps } from "@/components/map";
 
 const NEXT_PUBLIC_GROUP_TOKEN: string | undefined =
@@ -19,6 +20,7 @@ const EventsPage: () => ReactElement = (): ReactElement => {
   const [events, setEvents] = useState<EventString[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedEvent, setSelectedEvent] = useState<EventString | null>(null);
+  const { t } = useTranslation();
 
   const headers: HeadersInit = useMemo((): Record<string, string> => {
     const headersInit: HeadersInit = {
@@ -100,7 +102,7 @@ const EventsPage: () => ReactElement = (): ReactElement => {
       >
         <div className="my-4">
           <h1 className="text-2xl font-bold text-black sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center mx-auto">
-            Events
+            {t("events.title")}
           </h1>
         </div>
         <div className="my-8"></div>
@@ -193,7 +195,7 @@ const EventsPage: () => ReactElement = (): ReactElement => {
                   fontSize: "1.2rem",
                 }}
               >
-                Select an event to see details
+                {t("events.click")}
               </p>
             )}
           </div>

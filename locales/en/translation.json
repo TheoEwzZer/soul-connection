@@ -7,7 +7,7 @@
       "prev": "Previous",
       "next": "Next"
     },
-    "search" : "Search..."
+    "search": "Search..."
   },
   "login": {
     "enter_email": "Enter your email below to login to your account",
@@ -22,7 +22,12 @@
     "tips": "Tips",
     "compatibility": "Compatibility",
     "account": "My Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
   },
   "tips": {
     "title": "Tips for Coaches"
@@ -110,6 +115,10 @@
     "id": "User ID:",
     "address": "Address:",
     "back": "Back"
+  },
+  "events": {
+    "title": "Events",
+    "click": "Select an event to see more details"
   },
   "and": "and",
   "page": "Page"

@@ -270,13 +270,13 @@ export function Navbar(): ReactElement {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={(): void => setTheme("light")}>
-                Light
+                {t("navbar.themes.light")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={(): void => setTheme("dark")}>
-                Dark
+                {t("navbar.themes.dark")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={(): void => setTheme("system")}>
-                System
+                {t("navbar.themes.system")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
