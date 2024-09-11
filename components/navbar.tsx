@@ -225,7 +225,6 @@ export function Navbar(): ReactElement {
               >
                 Documents
               </Link>
-              d
             </nav>
           </SheetContent>
         </Sheet>
