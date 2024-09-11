@@ -40,7 +40,6 @@ export default function CustomerDetails({
   const [translatedEncounters, setTranslatedEncounters] = useState<Encounter[]>(
     []
   );
-  const [blockTranslation, setBlockTranslation] = useState<boolean>(true);
   const { t } = useTranslation();
 
   const headers: HeadersInit = useMemo((): Record<string, string> => {
@@ -112,7 +111,7 @@ export default function CustomerDetails({
 
   useEffect(() => {
     const translateEncounters = async () => {
-      if (i18n.language === "fr" && !blockTranslation) {
+      if (i18n.language === "fr") {
         const translated = await Promise.all(
           encounters.map(async (encounter) => {
             const translatedComment = encounter.comment
@@ -130,7 +129,7 @@ export default function CustomerDetails({
     if (encounters.length > 0) {
       translateEncounters();
     }
-  }, [encounters, blockTranslation]);
+  }, [encounters]);
 
   if (!customer) {
     return (

@@ -29,7 +29,6 @@ const Advices: () => ReactElement = (): ReactElement => {
   const [translatedTips, setTranslatedTips] = useState<Tip[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [translatedQuery, setTranslatedQuery] = useState<string>("");
-  const [blockTranslation, setBlockTranslation] = useState<boolean>(true);
   const { t } = useTranslation();
 
   const headers: HeadersInit = useMemo((): Record<string, string> => {
@@ -82,7 +81,7 @@ const Advices: () => ReactElement = (): ReactElement => {
 
   useEffect(() => {
     const translateTips = async () => {
-      if (i18n.language === "fr" && !blockTranslation) {
+      if (i18n.language === "fr") {
         const translated = await Promise.all(
           tips.map(async (tip) => {
             const translatedTitle = await translateText(tip.title, "FR");
@@ -99,13 +98,13 @@ const Advices: () => ReactElement = (): ReactElement => {
     if (tips.length > 0) {
       translateTips();
     }
-  }, [tips, blockTranslation]);
+  }, [tips]);
 
   useEffect(() => {
     const translateQuery = async () => {
       if (searchQuery) {
         let translated;
-        if (i18n.language === "fr" && !blockTranslation) {
+        if (i18n.language === "fr") {
           translated = await translateText(searchQuery, "FR");
         } else {
           translated = searchQuery;
@@ -117,7 +116,7 @@ const Advices: () => ReactElement = (): ReactElement => {
     };
 
     translateQuery();
-  }, [searchQuery, blockTranslation]);
+  }, [searchQuery]);
 
   const filteredTips: Tip[] = translatedTips.filter((tip: Tip): boolean =>
     tip.title.toLowerCase().includes(translatedQuery.toLowerCase())
@@ -136,15 +135,6 @@ const Advices: () => ReactElement = (): ReactElement => {
                 searchFilter={searchQuery}
                 setSearchFilter={setSearchQuery}
               />
-              <Button
-                variant="outline"
-                className="mt-4 sm:mt-0 sm:ml-4"
-                onClick={() => setBlockTranslation(!blockTranslation)}
-              >
-                {blockTranslation
-                  ? "Activer la traduction"
-                  : "Bloquer la traduction"}
-              </Button>
             </div>
             <div className="p-2"></div>
             <Accordion type="single" collapsible>
