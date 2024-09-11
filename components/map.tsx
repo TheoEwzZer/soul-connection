@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-interface MapProps {
+export interface MapProps {
   latitude: number;
   longitude: number;
   locationName: string;

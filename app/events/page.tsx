@@ -1,14 +1,19 @@
 "use client";
 
 import React, { ReactElement, useEffect, useMemo, useState } from "react";
-import Map from "@/components/map";
+import dynamic from "next/dynamic";
 import { EventString } from "../api/events/route";
-import { CardHeader, CardTitle } from "@/components/ui/card";
 import Agenda from "@/components/agenda";
 import UpAppearTransition from "@/components/UpAppearTransition";
+import { MapProps } from "@/components/map";
 
 const NEXT_PUBLIC_GROUP_TOKEN: string | undefined =
   process.env.NEXT_PUBLIC_GROUP_TOKEN;
+
+const Map: React.ComponentType<MapProps> = dynamic(
+  () => import("@/components/map"),
+  { ssr: false }
+);
 
 const EventsPage: () => ReactElement = (): ReactElement => {
   const [events, setEvents] = useState<EventString[]>([]);
