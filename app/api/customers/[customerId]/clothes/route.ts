@@ -47,6 +47,7 @@ export async function GET(
       id: true,
       type: true,
       customer_id: true,
+      image_url: true,
     },
   });
 
